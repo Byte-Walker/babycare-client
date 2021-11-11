@@ -1,0 +1,48 @@
+.banner-container {
+    background-color: var(--color-secondary);
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.banner-img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.banner-content h3 {
+    margin-bottom: 10px;
+}
+
+.banner-content h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin: 20px 0;
+    text-transform: capitalize;
+}
+
+.banner-content p {
+    width: 80%;
+    color: rgba(0, 0, 0, 0.747);
+    margin-bottom: 30px;
+    letter-spacing: 0.4px;
+    line-height: 25px;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 999px) {
+    .banner {
+        grid-template-columns: 1fr;
+        grid-gap: 50px;
+        place-items: center;
+    }
+
+    .banner-img {
+        order: -1;
+    }
+}
