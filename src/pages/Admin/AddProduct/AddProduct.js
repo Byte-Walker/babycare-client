@@ -27,7 +27,7 @@ const AddProduct = () => {
             img,
         };
         const productForm = document.getElementById('product-form');
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://morning-tundra-59616.herokuapp.com/addproduct', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(product),

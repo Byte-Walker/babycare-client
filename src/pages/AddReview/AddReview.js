@@ -41,7 +41,7 @@ const AddReview = () => {
         };
         const reviewForm = document.getElementById('review-form');
 
-        fetch('http://localhost:5000/addreview', {
+        fetch('https://morning-tundra-59616.herokuapp.com/addreview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reviewDetails),

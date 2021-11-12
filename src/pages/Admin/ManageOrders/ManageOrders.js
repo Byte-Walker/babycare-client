@@ -7,7 +7,7 @@ const ManageOrders = () => {
     const [render, setRender] = useState(true);
     const [orders, setOrders] = useState([]);
     useEffect(() => {      
-        fetch(`http://localhost:5000/getorders`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/getorders`)
             .then((response) => response.json())
             .then((data) => setOrders(data));
     }, [render]);

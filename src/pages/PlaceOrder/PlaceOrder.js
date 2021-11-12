@@ -18,7 +18,7 @@ const PlaceOrder = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleProduct/${productId}`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/singleProduct/${productId}`)
             .then((response) => response.json())
             .then((data) => setProduct(data));
     }, []);
@@ -35,7 +35,7 @@ const PlaceOrder = () => {
             status: 'pending',
         };
 
-        fetch('http://localhost:5000/postorder', {
+        fetch('https://morning-tundra-59616.herokuapp.com/postorder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderDetails),

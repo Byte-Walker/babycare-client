@@ -28,7 +28,7 @@ const Login = () => {
     const { uid } = user;
     const [role, setRole] = React.useState('');
     React.useEffect(() => {
-        fetch(`http://localhost:5000/user/${uid}`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/user/${uid}`)
             .then((response) => response.json())
             .then((data) => {
                 setRole(data.role);

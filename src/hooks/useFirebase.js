@@ -30,7 +30,7 @@ const useFirebase = () => {
     // }, [user]);
 
     const sendUserToDatabase = (user) => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://morning-tundra-59616.herokuapp.com/user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),

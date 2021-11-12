@@ -14,7 +14,7 @@ const MakeAdmin = () => {
 
         const reviewForm = document.getElementById('review-form');
 
-        fetch(`http://localhost:5000/makeadmin/${email}`, {
+        fetch(`https://morning-tundra-59616.herokuapp.com/makeadmin/${email}`, {
             method: 'PUT',
         })
             .then((response) => response.json())

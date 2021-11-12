@@ -9,7 +9,7 @@ const ProductCard = ({ product, admin }) => {
 
     // Handle delete product
     const handleDeleteProduct = () => {
-        fetch(`http://localhost:5000/deleteproduct/${_id}`, {
+        fetch(`https://morning-tundra-59616.herokuapp.com/deleteproduct/${_id}`, {
             method: 'DELETE',
         })
             .then((response) => response.json())

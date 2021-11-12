@@ -13,7 +13,7 @@ export default function MediaCard({ order, setRender, role }) {
 
     // Get product details
     React.useEffect(() => {
-        fetch(`http://localhost:5000/singleProduct/${productId}`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/singleProduct/${productId}`)
             .then((response) => response.json())
             .then((data) => setProduct(data));
     }, []);
@@ -22,7 +22,7 @@ export default function MediaCard({ order, setRender, role }) {
 
     // hanle Delete order
     const handleDeleteOrder = () => {
-        fetch(`http://localhost:5000/deleteorder/${_id}`, {
+        fetch(`https://morning-tundra-59616.herokuapp.com/deleteorder/${_id}`, {
             method: 'DELETE',
         })
             .then((response) => response.json())
@@ -37,7 +37,7 @@ export default function MediaCard({ order, setRender, role }) {
     // Handle approve order
 
     const handleApproveOrder = () => {
-        fetch(`http://localhost:5000/approveorder/${_id}`, {
+        fetch(`https://morning-tundra-59616.herokuapp.com/approveorder/${_id}`, {
             method: 'PUT',
         })
             .then((response) => response.json())

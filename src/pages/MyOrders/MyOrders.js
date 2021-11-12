@@ -12,7 +12,7 @@ const MyOrders = () => {
     const { uid } = user;
 
     useEffect(() => {      
-        fetch(`http://localhost:5000/getorders/${uid}`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/getorders/${uid}`)
             .then((response) => response.json())
             .then((data) => setOrders(data));
     }, [render]);

@@ -1,4 +1,3 @@
-import Header from '../../components/Shared/Header/Header';
 import './Dashboard.css';
 import logo from '../../media/BabyCare-Logo.png';
 import {
@@ -6,7 +5,6 @@ import {
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch,
 } from 'react-router-dom';
 
@@ -54,7 +52,7 @@ function Dashboard(props) {
     const [role, setRole] = React.useState('');
     console.log(role);
     React.useEffect(() => {
-        fetch(`http://localhost:5000/user/${uid}`)
+        fetch(`https://morning-tundra-59616.herokuapp.com/user/${uid}`)
             .then((response) => response.json())
             .then((data) => setRole(data.role));
     }, [uid]);
@@ -180,7 +178,7 @@ function Dashboard(props) {
         window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <React.Fragment className="max-width">
+        <div className="max-width">
             {/* <Header /> */}
             <Box sx={{ display: 'flex', position: 'relative' }}>
                 <CssBaseline />
@@ -298,16 +296,9 @@ function Dashboard(props) {
                     </Switch>
                 </Box>
             </Box>
-        </React.Fragment>
+        </div>
     );
 }
 
-Dashboard.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-};
 
 export default Dashboard;
