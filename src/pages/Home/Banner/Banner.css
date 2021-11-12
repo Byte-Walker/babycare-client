@@ -35,6 +35,10 @@
     font-size: 18px;
 }
 
+.banner-content > a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 999px) {
     .banner {
         grid-template-columns: 1fr;

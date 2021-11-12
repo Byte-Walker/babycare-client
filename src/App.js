@@ -9,6 +9,9 @@ import Register from './pages/Register/Register';
 import { createContext } from 'react';
 import useFirebase from './hooks/useFirebase';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import MyOrders from './pages/MyOrders/MyOrders';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const theme = createTheme({
     palette: {
@@ -42,8 +45,23 @@ function App() {
                             <Explore />
                         </PrivateRoute>
 
+                        {/* Placeorder route */}
+                        <PrivateRoute exact path={'/placeorder/:productId'}>
+                            <PlaceOrder />
+                        </PrivateRoute>
+
+                        {/* My Orders route */}
+                        <PrivateRoute exact path={'/myorders'}>
+                            <MyOrders />
+                        </PrivateRoute>
+
+                        {/* My Orders route */}
+                        <PrivateRoute path={'/dashboard'}>
+                            <Dashboard />
+                        </PrivateRoute>
+
                         {/* Login route */}
-                        <Route exact path={'/login'}>
+                        <Route exact path={['/login', '/login/:from']}>
                             <Login />
                         </Route>
 

@@ -1,0 +1,25 @@
+.review-card {
+    border: 1px solid var(--color-primary-light);
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.review-card:hover {
+    box-shadow: 0 0 100px var(--color-secondary);
+}
+
+.avatar-name {
+    display: flex;
+    align-items: center;
+}
+
+.review-card-name {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.name-rating {
+    margin-left: 10px;
+    /* display: inline-block; */
+}

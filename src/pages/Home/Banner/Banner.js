@@ -2,6 +2,7 @@ import React from 'react';
 import './Banner.css';
 import baby from '../../../media/Best-Baby-Skin-Care-Products.jpg';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -19,7 +20,9 @@ const Banner = () => {
                         Returns & Refunds. So what are you waiting for? Click
                         the button below to check out...
                     </p>
-                    <ButtonPrimary text={'Explore'} />
+                    <Link to="/explore">
+                        <ButtonPrimary text={'Explore'} />
+                    </Link>
                 </div>
                 <img src={baby} alt="cute baby" className="banner-img" />
             </div>

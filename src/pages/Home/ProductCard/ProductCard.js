@@ -1,9 +1,26 @@
+import { Button } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
 import './ProductCard.css';
 
-const ProductCard = ({ product }) => {
-    const { name, description, rating, price, img } = product;
+const ProductCard = ({ product, admin }) => {
+    const { name, description, rating, price, img, _id } = product;
+
+    // Handle delete product
+    const handleDeleteProduct = () => {
+        fetch(`http://localhost:5000/deleteproduct/${_id}`, {
+            method: 'DELETE',
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    window.location.reload();
+                }
+            });
+    };
+
     return (
         <div className="product-card">
             <img className="product-card-img" src={img} alt={name} />
@@ -14,7 +31,26 @@ const ProductCard = ({ product }) => {
                     {description.slice(0, 80) + '...'}
                 </p>
                 <h2 className="product-card-price">${price}</h2>
-                <ButtonPrimary text="Buy Now" />
+                {admin ? (
+                    <Button
+                        color="error"
+                        variant="contained"
+                        onClick={() =>
+                            // Confirmation popup
+                            window.confirm(
+                                'Are you sure you want to delete this?'
+                            )
+                                ? handleDeleteProduct()
+                                : null
+                        }
+                    >
+                        Delete
+                    </Button>
+                ) : (
+                    <Link to={'/placeorder/' + _id}>
+                        <ButtonPrimary text="Buy Now" />
+                    </Link>
+                )}
             </div>
         </div>
     );

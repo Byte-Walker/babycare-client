@@ -17,3 +17,7 @@
     color: var(--color-primary);
     margin-bottom: 0;
 }
+
+.product-card-info a{
+    text-decoration: none;
+}

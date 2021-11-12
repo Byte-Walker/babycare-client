@@ -4,8 +4,9 @@ import logo from '../../../media/BabyCare-Logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import PersonIconOutlined from '@mui/icons-material/PersonOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { Badge, Button, IconButton, Avatar } from '@mui/material';
+import { Avatar } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
+import AvatarUser from '../AvatarUser/AvatarUser';
 
 const Header = () => {
     const { user, signOutUser } = useAuth();
@@ -14,37 +15,6 @@ const Header = () => {
     const handleSignOut = () => {
         signOutUser();
     };
-
-    //String to color converter
-    function stringToColor(string) {
-        let hash = 0;
-        let i;
-
-        /* eslint-disable no-bitwise */
-        for (i = 0; i < string?.length; i += 1) {
-            hash = string?.charCodeAt(i) + ((hash << 5) - hash);
-        }
-
-        let color = '#';
-
-        for (i = 0; i < 3; i += 1) {
-            const value = (hash >> (i * 8)) & 0xff;
-            color += `00${value.toString(16)}`.substr(-2);
-        }
-        /* eslint-enable no-bitwise */
-
-        return color;
-    }
-
-    // String to avatar converter
-    function stringAvatar(name) {
-        return {
-            sx: {
-                bgcolor: stringToColor(name),
-            },
-            children: `${name?.split(' ')[0][0]}${name?.split(' ')[1][0]}`,
-        };
-    }
 
     return (
         <div className="navbar-container">
@@ -77,55 +47,44 @@ const Header = () => {
                         Explore
                     </NavLink>
                     <NavLink
-                        to="/contact"
+                        to="/dashboard"
                         activeStyle={{
                             color: '#ff8ea6',
                             borderColor: '#ff8ea6',
                         }}
                     >
-                        Contact
+                        Dashboard
                     </NavLink>
                 </div>
 
                 <div className="navbar-icons">
                     {/* Cart icon */}
-                    <IconButton aria-label="cart" sx={{ marginRight: '5px' }}>
+                    {/* <IconButton aria-label="cart" sx={{ marginRight: '5px' }}>
                         <Badge badgeContent={1} color="primary">
                             <ShoppingCartOutlinedIcon
                                 sx={{ fontSize: 35, color: 'black' }}
                             />
                         </Badge>
-                    </IconButton>
+                    </IconButton> */}
 
                     {/* Profile Icon */}
                     <div className="avatar">
                         {user?.email ? (
-                            user.img ? (
-                                <Avatar alt={user.displayName} src={user.img} />
-                            ) : user.displayName ? (
-                                <Avatar
-                                    {...stringAvatar(`${user.displayName}`)}
-                                />
-                            ) : null
+                            <AvatarUser user={user} handleSignOut={handleSignOut}/>
                         ) : (
                             <Link to="/login">
-                                <Avatar  sx={{ bgcolor: 'var(--color-secondary)' }}>
-                                <PersonIconOutlined
-                                        sx={{ fontSize: 35, color: 'black' }}
-                                    />
-                                </Avatar>
-                                
-                                {/* <IconButton aria-label="profile">
+                                <Avatar
+                                    sx={{ bgcolor: 'var(--color-secondary)' }}
+                                >
                                     <PersonIconOutlined
                                         sx={{ fontSize: 35, color: 'black' }}
                                     />
-                                </IconButton> */}
+                                </Avatar>
+
                             </Link>
                         )}
                     </div>
 
-                    {/* Logout btn */}
-                    <Button onClick={handleSignOut}>Logout</Button>
                 </div>
             </nav>
         </div>

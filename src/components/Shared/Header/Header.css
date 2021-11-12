@@ -43,8 +43,8 @@
 
 .avatar {
     margin: 0 10px;
-    border: 2px solid var(--color-secondary);
-    outline: 1px solid var(--color-primary);
+    /* border: 2px solid var(--color-secondary); */
+    /* outline: 1px solid var(--color-primary); */
     border-radius: 50%;
 }
 
