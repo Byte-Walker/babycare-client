@@ -50,3 +50,15 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+@media only screen and (max-width: 699px) {
+    .place-order-product-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .place-order-product-name p{
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    
+}
