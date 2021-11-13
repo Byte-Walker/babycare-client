@@ -1,0 +1,61 @@
+import React from 'react';
+import './Footer.css';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
+const Footer = () => {
+    const iconStyle = {
+        marginRight: '10px',
+        display: 'inline-block',
+        fontSize: '30px',
+    };
+
+    return (
+        <footer className="footer">
+            <div className="footer-grid max-width">
+                <div className="footer-left">
+                    <h1>BabyCare</h1>
+                    <p className="footer-left-tagline">The best place for caring your baby</p>
+                    <p className="footer-left-location">Block #F, Lalmatia <br/> Dhaka, Bangladesh</p>
+                </div>
+                <div className="footer-right">
+                    <p>Follow us on social media</p>
+                    <a
+                        href="https://www.facebook.com/profile.php?id=100008215602384"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <FacebookIcon sx={iconStyle} />
+                    </a>
+                    <a
+                        href="https://twitter.com/search?q=babycare&src=typed_query&f=top"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <TwitterIcon sx={iconStyle} />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/?hl=en"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <InstagramIcon sx={iconStyle} />
+                    </a>
+                </div>
+            </div>
+            <p
+                style={{
+                    margin: '0 auto',
+                    textAlign: 'center',
+                    paddingBottom: '10px',
+                    color: 'white',
+                }}
+            >
+                2021 &copy; | All rights reserved
+            </p>
+        </footer>
+    );
+};
+
+export default Footer;

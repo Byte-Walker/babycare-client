@@ -55,7 +55,6 @@ const ReviewCard = ({ review }) => {
                     />
                 </div>
             </div>
-
             <p className="review-card-description">{description}</p>
         </div>
     );

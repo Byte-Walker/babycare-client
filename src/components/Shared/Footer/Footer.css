@@ -1,0 +1,31 @@
+.footer {
+    background-color: var(--color-primary);
+}
+
+.footer-grid {
+    padding: 20px;
+    margin-top: 50px;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+}
+
+.footer-left a, .footer-right a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-left h1 {
+    margin-bottom: 5px;
+    font-size: 45px;
+}
+
+.footer-left-tagline {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+
+

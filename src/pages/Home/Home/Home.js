@@ -1,6 +1,8 @@
 import React from 'react';
+import Footer from '../../../components/Shared/Footer/Footer';
 import Header from '../../../components/Shared/Header/Header';
 import Banner from '../Banner/Banner';
+import Features from '../Features/Features';
 import Products from '../Products/Products';
 import Reviews from '../Reviews/Reviews';
 import './Home.css';
@@ -12,6 +14,8 @@ const Home = () => {
             <Banner />
             <Products limit={6} />
             <Reviews />
+            <Features />
+            <Footer />
         </div>
     );
 };
