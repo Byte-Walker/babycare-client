@@ -17,6 +17,8 @@ const Products = () => {
 
 export default Products;
 
+
+// Image list
 /*
 https://i.ibb.co/2tGGC2H/p1.jpg
 https://i.ibb.co/kKPBn3m/p2.jpg

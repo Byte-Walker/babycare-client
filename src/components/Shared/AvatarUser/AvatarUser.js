@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import ExploreIcon from '@mui/icons-material/Explore';
 
 const AvatarUser = ({ user, handleSignOut }) => {
-    //Avatar controller------------------------------
+    //-----------------------Avatar controller------------------------------
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -22,7 +22,7 @@ const AvatarUser = ({ user, handleSignOut }) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    //--------------------------------------
+    //-----------------------------------------------------------------------
 
     //String to color converter
     function stringToColor(string) {
@@ -58,16 +58,19 @@ const AvatarUser = ({ user, handleSignOut }) => {
     // Component AvatarUser
     return (
         <React.Fragment>
+            {/* Avatar Icon / image */}
             <Tooltip title="Account settings">
                 <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+                    {/* Checking if the user has profile picture or not */}
                     {user.img ? (
                         <Avatar alt={user.displayName} src={user.img} />
                     ) : user.displayName ? (
                         <Avatar {...stringAvatar(`${user.displayName}`)} />
                     ) : null}
-                    {/* <Avatar sx={{ width: 32, height: 32 }}>M</Avatar> */}
                 </IconButton>
             </Tooltip>
+
+            {/* Popup menu while clinking the avatar */}
             <Menu
                 anchorEl={anchorEl}
                 open={open}
@@ -102,6 +105,8 @@ const AvatarUser = ({ user, handleSignOut }) => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
+                {/* Links of the popup menu */}
+                {/* Dashboard */}
                 <Link
                     to="/dashboard"
                     style={{
@@ -114,7 +119,8 @@ const AvatarUser = ({ user, handleSignOut }) => {
                         <Avatar /> Dashboard
                     </MenuItem>
                 </Link>
-                {/* <Divider sx={{ margin: '5px 0' }} /> */}
+
+                {/* Explore */}
                 <Link
                     to="/explore"
                     style={{
@@ -138,6 +144,8 @@ const AvatarUser = ({ user, handleSignOut }) => {
                 </Link>
 
                 <Divider sx={{ margin: '5px 0' }} />
+
+                {/* Sign out button */}
                 <MenuItem onClick={handleSignOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />

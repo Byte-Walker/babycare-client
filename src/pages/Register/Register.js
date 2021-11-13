@@ -15,8 +15,8 @@ const Register = () => {
     const [password, setPassword] = useState();
     const { redirectTo } = useParams();
     const history = useHistory();
-    console.log(redirectTo);
 
+    // Redirecting the user after regiser
     if (user.email) {
         if (redirectTo) {
             history.push(`/${redirectTo}`);
@@ -24,6 +24,8 @@ const Register = () => {
             history.push('/login/fromregister');
         }
     }
+
+    // Handle user sign up
     const handleSignIn = (e) => {
         setError('');
         e.preventDefault();

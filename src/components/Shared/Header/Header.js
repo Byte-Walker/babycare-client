@@ -3,15 +3,15 @@ import './Header.css';
 import logo from '../../../media/BabyCare-Logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import PersonIconOutlined from '@mui/icons-material/PersonOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Avatar } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import AvatarUser from '../AvatarUser/AvatarUser';
 
 const Header = () => {
+    // Getting the user
     const { user, signOutUser } = useAuth();
 
-    // Sign out user
+    // handle Sign out user
     const handleSignOut = () => {
         signOutUser();
     };
@@ -19,6 +19,7 @@ const Header = () => {
     return (
         <div className="navbar-container">
             <nav className="navbar max-width">
+                {/* Logo */}
                 <Link to="/">
                     <img
                         src={logo}
@@ -27,6 +28,7 @@ const Header = () => {
                     />
                 </Link>
 
+                {/* Menu list */}
                 <div className="navbar-menu">
                     <NavLink
                         to="/home"
@@ -57,6 +59,7 @@ const Header = () => {
                     </NavLink>
                 </div>
 
+                {/* Avatar and cart icon */}
                 <div className="navbar-icons">
                     {/* Cart icon */}
                     {/* <IconButton aria-label="cart" sx={{ marginRight: '5px' }}>
@@ -70,7 +73,10 @@ const Header = () => {
                     {/* Profile Icon */}
                     <div className="avatar">
                         {user?.email ? (
-                            <AvatarUser user={user} handleSignOut={handleSignOut}/>
+                            <AvatarUser
+                                user={user}
+                                handleSignOut={handleSignOut}
+                            />
                         ) : (
                             <Link to="/login">
                                 <Avatar
@@ -80,11 +86,9 @@ const Header = () => {
                                         sx={{ fontSize: 35, color: 'black' }}
                                     />
                                 </Avatar>
-
                             </Link>
                         )}
                     </div>
-
                 </div>
             </nav>
         </div>

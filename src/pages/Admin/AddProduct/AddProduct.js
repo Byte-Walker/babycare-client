@@ -1,10 +1,10 @@
 import { Alert, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
-import PageBanner from '../../../components/Shared/PageBanner/PageBanner';
 import './AddProduct.css';
 
 const AddProduct = () => {
+    // Necessary states
     const [alertVisibility, setAlertVisibility] = useState(false);
     const [severity, setSeverity] = useState('success');
     const [name, setName] = useState('');
@@ -18,6 +18,7 @@ const AddProduct = () => {
     const handleAddProduct = (e) => {
         e.preventDefault();
 
+        // Building the product object
         const product = {
             name,
             description,
@@ -27,6 +28,8 @@ const AddProduct = () => {
             img,
         };
         const productForm = document.getElementById('product-form');
+
+        // Sending POST request to the server
         fetch('https://morning-tundra-59616.herokuapp.com/addproduct', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -34,6 +37,7 @@ const AddProduct = () => {
         })
             .then((response) => response.json())
             .then((data) => {
+                // Checking if the insertion was usccessful in the server
                 setAlertVisibility(true);
                 if (data.insertedId) {
                     productForm.reset();
@@ -49,6 +53,7 @@ const AddProduct = () => {
 
     return (
         <div>
+            {/* Add product card container */}
             <div className="login">
                 {alertVisibility ? (
                     <Alert severity={severity}>
@@ -57,6 +62,8 @@ const AddProduct = () => {
                             : 'Sorry! There was something wrong!'}
                     </Alert>
                 ) : null}
+
+                {/* Product information collecting form */}
                 <form
                     className="login-form"
                     id="product-form"

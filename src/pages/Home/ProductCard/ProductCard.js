@@ -9,9 +9,12 @@ const ProductCard = ({ product, admin }) => {
 
     // Handle delete product
     const handleDeleteProduct = () => {
-        fetch(`https://morning-tundra-59616.herokuapp.com/deleteproduct/${_id}`, {
-            method: 'DELETE',
-        })
+        fetch(
+            `https://morning-tundra-59616.herokuapp.com/deleteproduct/${_id}`,
+            {
+                method: 'DELETE',
+            }
+        )
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -23,7 +26,10 @@ const ProductCard = ({ product, admin }) => {
 
     return (
         <div className="product-card">
+            {/* Product Image */}
             <img className="product-card-img" src={img} alt={name} />
+
+            {/* Product card info */}
             <div className="product-card-info">
                 <h3 className="product-card-title">{name.slice(0, 20)}</h3>
                 <p className="product-card-rating">Rating: {rating}</p>
@@ -31,6 +37,8 @@ const ProductCard = ({ product, admin }) => {
                     {description.slice(0, 80) + '...'}
                 </p>
                 <h2 className="product-card-price">${price}</h2>
+
+                {/* Displaying different buttons depending on the role */}
                 {admin ? (
                     <Button
                         color="error"

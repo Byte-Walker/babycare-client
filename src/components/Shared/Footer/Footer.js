@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
+    // Common style for icons
     const iconStyle = {
         marginRight: '10px',
         display: 'inline-block',
@@ -14,11 +15,20 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-grid max-width">
+                {/* Left side content of the footer */}
                 <div className="footer-left">
                     <h1>BabyCare</h1>
-                    <p className="footer-left-tagline">The best place for caring your baby</p>
-                    <p className="footer-left-location"> <h3 style={{marginBottom: '10px'}}>Address:</h3> Block #F, Lalmatia <br/> Dhaka, Bangladesh</p>
+                    <p className="footer-left-tagline">
+                        The best place for caring your baby
+                    </p>
+                    <p className="footer-left-location">
+                        {' '}
+                        <h3 style={{ marginBottom: '10px' }}>Address:</h3> Block
+                        #F, Lalmatia <br /> Dhaka, Bangladesh
+                    </p>
                 </div>
+
+                {/* Right side content of the footer */}
                 <div className="footer-right">
                     <p>Follow us on social media</p>
                     <a
@@ -44,6 +54,8 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
+
+            {/* Copyright text of the fotoer */}
             <p
                 style={{
                     margin: '0 auto',
@@ -52,7 +64,7 @@ const Footer = () => {
                     color: 'white',
                 }}
             >
-                 &copy; 2021 | All rights reserved
+                &copy; 2021 | All rights reserved
             </p>
         </footer>
     );

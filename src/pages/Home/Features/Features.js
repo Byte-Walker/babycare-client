@@ -10,7 +10,10 @@ const Features = () => {
             <h1 className="section-heading">Features</h1>
             <p className="section-description">The values we provide</p>
             <div className="title-separator"></div>
+
+            {/* Feature grid */}
             <div className="product-grid">
+                {/* Feature card 1 */}
                 <div className="feature-card">
                     <PriceChangeIcon
                         sx={{
@@ -26,6 +29,8 @@ const Features = () => {
                         for? Grab your deal right now.
                     </p>
                 </div>
+
+                {/* Feature card 2 */}
                 <div className="feature-card">
                     <ControlPointIcon
                         sx={{
@@ -41,6 +46,8 @@ const Features = () => {
                         for? Grab your deal right now.
                     </p>
                 </div>
+
+                {/* Feature card 3 */}
                 <div className="feature-card">
                     <SupportAgentIcon
                         sx={{

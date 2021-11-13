@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../../components/Shared/Header/Header';
 import PageBanner from '../../components/Shared/PageBanner/PageBanner';
 import useAuth from '../../hooks/useAuth';
 import OrderCard from './OrderCard/OrderCard';
@@ -11,6 +10,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     const { uid } = user;
 
+    // Getting the orders of a specific user
     useEffect(() => {      
         fetch(`https://morning-tundra-59616.herokuapp.com/getorders/${uid}`)
             .then((response) => response.json())

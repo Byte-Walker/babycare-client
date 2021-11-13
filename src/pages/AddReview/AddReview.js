@@ -7,6 +7,7 @@ import PageBanner from '../../components/Shared/PageBanner/PageBanner';
 import './AddReview.css';
 import useAuth from '../../hooks/useAuth';
 
+// Giving names to each possible ratings
 const labels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -22,6 +23,8 @@ const labels = {
 
 const AddReview = () => {
     const { user } = useAuth();
+
+    // Necessary states
     const [alertVisibility, setAlertVisibility] = useState(false);
     const [severity, setSeverity] = useState('success');
     const [description, setDescription] = useState();
@@ -32,6 +35,8 @@ const AddReview = () => {
     const handleReviewSubmit = (e) => {
         setAlertVisibility(false);
         e.preventDefault();
+
+        // Build the review object
         const reviewDetails = {
             uid: user.uid,
             name: user.displayName,
@@ -41,6 +46,7 @@ const AddReview = () => {
         };
         const reviewForm = document.getElementById('review-form');
 
+        // Post the review to database
         fetch('https://morning-tundra-59616.herokuapp.com/addreview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -49,9 +55,10 @@ const AddReview = () => {
             .then((response) => response.json())
             .then((data) => {
                 setAlertVisibility(true);
+                // Checking if the response is positive or negative
                 if (data.insertedId) {
                     reviewForm.reset();
-                    setSeverity('success')
+                    setSeverity('success');
                 } else {
                     setSeverity('error');
                     console.error(
@@ -63,8 +70,10 @@ const AddReview = () => {
 
     return (
         <div>
+            {/* Top page banner */}
             <PageBanner title="Review" />
 
+            {/* Review taking card */}
             <div className="login">
                 {alertVisibility ? (
                     <Alert severity={severity}>
@@ -73,11 +82,13 @@ const AddReview = () => {
                             : 'There was something wrong!'}
                     </Alert>
                 ) : null}
+
                 <form
                     className="login-form"
                     id="review-form"
                     onSubmit={handleReviewSubmit}
                 >
+                    {/* Form title */}
                     <h1 className="login-heading">Add a review</h1>
                     <Box
                         sx={{
@@ -86,6 +97,7 @@ const AddReview = () => {
                             alignItems: 'center',
                         }}
                     >
+                        {/* Rating input field */}
                         <Rating
                             name="hover-feedback"
                             value={value}
@@ -103,6 +115,7 @@ const AddReview = () => {
                                 />
                             }
                         />
+
                         {value !== null && (
                             <Box sx={{ ml: 2 }}>
                                 {labels[hover !== -1 ? hover : value]}
@@ -110,6 +123,7 @@ const AddReview = () => {
                         )}
                     </Box>
                     <br />
+                    {/* description input field */}
                     <TextField
                         required
                         variant="outlined"
@@ -119,6 +133,8 @@ const AddReview = () => {
                         sx={{ width: '100%', marginBottom: '40px' }}
                         onBlur={(e) => setDescription(e.target.value)}
                     />
+
+                    {/* SUBMIT button */}
                     <button
                         type="submit"
                         style={{

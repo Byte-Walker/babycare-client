@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Footer from './components/Shared/Footer/Footer';
 import NotFound from './pages/NotFound/NotFound';
 
+// Overriding material theme colors
 const theme = createTheme({
     palette: {
         primary: {
@@ -76,7 +77,7 @@ function App() {
                         </Route>
 
                         {/* Not Found page */}
-                        <Route path='*'>
+                        <Route path="*">
                             <NotFound />
                         </Route>
                     </Switch>

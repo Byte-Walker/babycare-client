@@ -8,6 +8,7 @@ const Banner = () => {
     return (
         <div className="banner-container">
             <div className="banner max-width">
+                {/* Left side content of the banner */}
                 <div className="banner-content">
                     <h3>Baby care products</h3>
                     <h1>
@@ -24,6 +25,8 @@ const Banner = () => {
                         <ButtonPrimary text={'Explore'} />
                     </Link>
                 </div>
+
+                {/* Right side image of the banner */}
                 <img src={baby} alt="cute baby" className="banner-img" />
             </div>
         </div>

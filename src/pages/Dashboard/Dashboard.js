@@ -1,7 +1,6 @@
 import './Dashboard.css';
 import logo from '../../media/BabyCare-Logo.png';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
@@ -9,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -50,29 +48,34 @@ function Dashboard(props) {
     const { user, signOutUser } = useAuth();
     const { uid } = user;
     const [role, setRole] = React.useState('');
-    console.log(role);
 
+    // Get specific user
     React.useEffect(() => {
         fetch(`https://morning-tundra-59616.herokuapp.com/user/${uid}`)
             .then((response) => response.json())
             .then((data) => setRole(data.role));
     }, [uid]);
 
+    // Link style
     const linkStyle = {
         textDecoration: 'inherit',
         color: 'inherit',
     };
 
+    // Handle drawer toggle
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
         <div>
+            {/* Logo */}
             <Toolbar>
                 <img src={logo} alt="babycare" style={{ width: '100%' }} />
             </Toolbar>
             <Divider />
+
+            {/* Side Menu Items */}
             <List>
                 <Link to="/" style={linkStyle}>
                     <ListItem button>
@@ -83,8 +86,10 @@ function Dashboard(props) {
                     </ListItem>
                 </Link>
             </List>
+
             <Divider />
-            {/* Menu items based on the role */}
+            {/* Displating Menu items based on the role */}
+            {/* Items for user */}
             {role === 'user' ? (
                 <List>
                     {/* My orders button */}
@@ -116,6 +121,8 @@ function Dashboard(props) {
                             <ListItemText primary="Pay" />
                         </ListItem>
                     </Link>
+
+                    {/* lOGOUT */}
                     <ListItem button onClick={signOutUser}>
                         <ListItemIcon>
                             <ExitToAppIcon />
@@ -123,7 +130,9 @@ function Dashboard(props) {
                         <ListItemText primary="Log Out" />
                     </ListItem>
                 </List>
-            ) : role === 'admin' ? (
+            ) : role === 'admin' ? 
+            // Items for Admin
+            (
                 <List>
                     {/* Manage orders button */}
                     <Link to={`${url}/manageorders`} style={linkStyle}>
@@ -145,7 +154,7 @@ function Dashboard(props) {
                         </ListItem>
                     </Link>
 
-                    {/* Manage Products button */}
+                    {/* Add button */}
                     <Link to={`${url}/addproduct`} style={linkStyle}>
                         <ListItem button>
                             <ListItemIcon>
@@ -164,6 +173,7 @@ function Dashboard(props) {
                             <ListItemText primary="Make an admin" />
                         </ListItem>
                     </Link>
+                    {/* Logout */}
                     <ListItem button onClick={signOutUser}>
                         <ListItemIcon>
                             <ExitToAppIcon />
@@ -180,9 +190,10 @@ function Dashboard(props) {
 
     return (
         <div>
-            {/* <Header /> */}
+            {/* Dashboard container */}
             <Box sx={{ display: 'flex', position: 'relative' }}>
                 <CssBaseline />
+                {/* Top App Bar */}
                 <AppBar
                     position="absolute"
                     sx={{
@@ -205,6 +216,9 @@ function Dashboard(props) {
                         </Typography>
                     </Toolbar>
                 </AppBar>
+
+
+                {/* Side mu list */}
                 <Box
                     component="nav"
                     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

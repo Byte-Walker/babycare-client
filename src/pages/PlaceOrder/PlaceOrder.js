@@ -17,8 +17,11 @@ const PlaceOrder = () => {
     const { productId } = useParams();
     const history = useHistory();
 
+    // Getting the product information based on the product id
     useEffect(() => {
-        fetch(`https://morning-tundra-59616.herokuapp.com/singleProduct/${productId}`)
+        fetch(
+            `https://morning-tundra-59616.herokuapp.com/singleProduct/${productId}`
+        )
             .then((response) => response.json())
             .then((data) => setProduct(data));
     }, []);
@@ -26,6 +29,8 @@ const PlaceOrder = () => {
     // Handling form submit
     const handleFormSubmit = (e) => {
         e.preventDefault();
+
+        // Building order object
         const orderDetails = {
             productId: _id,
             orderedBy: uid,
@@ -35,6 +40,7 @@ const PlaceOrder = () => {
             status: 'pending',
         };
 
+        // Sending order to the server
         fetch('https://morning-tundra-59616.herokuapp.com/postorder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -58,7 +64,10 @@ const PlaceOrder = () => {
                 <h1 className="section-heading">Product details</h1>
                 <div className="title-separator"></div>
                 <div className="place-order-product-grid">
+                    {/* Left side product image */}
                     <img src={img} alt={name} />
+
+                    {/* Right side product inforamtion */}
                     <div>
                         <div className="place-order-product-name">
                             <p>{name}</p>
@@ -131,6 +140,8 @@ const PlaceOrder = () => {
                             onBlur={(e) => setAddress(e.target.value)}
                         />
                     </div>
+
+                    {/* Form submit button */}
                     <div>
                         <button
                             type="submit"

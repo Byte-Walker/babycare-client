@@ -7,7 +7,7 @@ import {
     signOut,
     updateProfile,
 } from 'firebase/auth';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
@@ -29,6 +29,7 @@ const useFirebase = () => {
     //     }
     // }, [user]);
 
+    // Send the user information to our database
     const sendUserToDatabase = (user) => {
         fetch('https://morning-tundra-59616.herokuapp.com/user', {
             method: 'POST',
@@ -98,6 +99,7 @@ const useFirebase = () => {
             });
     };
 
+    // Return the necessary stuffs
     return {
         user,
         error,

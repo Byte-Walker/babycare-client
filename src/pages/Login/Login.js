@@ -9,6 +9,7 @@ import { Link, useHistory, useParams, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+    // Message form the redirect link
     const [fromMessage, setFromMessage] = useState('');
     const { from } = useParams();
 
@@ -19,14 +20,19 @@ const Login = () => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
+    // Getting necessary information about the user
     const { signInEmail, user, error, setError } = useAuth();
+
+    // Getting current history and location to redirect
     const history = useHistory();
     const location = useLocation();
     const url = location.state?.from?.pathname || '/';
-    console.log(url);
 
     const { uid } = user;
     const [role, setRole] = React.useState('');
+
+    // Getting the user role of the logged in person
     React.useEffect(() => {
         fetch(`https://morning-tundra-59616.herokuapp.com/user/${uid}`)
             .then((response) => response.json())
@@ -35,12 +41,14 @@ const Login = () => {
             });
     }, [uid]);
 
+    // Redirecting to different location based on the role of the logged in person
     if (user.email && role === 'user') {
         history.push(url);
     } else if (user.email && role === 'admin') {
         history.push('/dashboard');
     }
 
+    // Handle login function
     const handleLogin = (e) => {
         e.preventDefault();
         setError('');
@@ -53,6 +61,7 @@ const Login = () => {
             <Header />
             <PageBanner title="Account" />
             <div className="login">
+                {/* Message */}
                 {fromMessage ? (
                     <Alert severity="success">
                         {

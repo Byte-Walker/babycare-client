@@ -1,5 +1,6 @@
 import { Redirect, Route } from 'react-router';
 
+// Private route for admin for protecting admin route
 function PrivateAdmin({ children, role, ...rest }) {
     return (
         <Route

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductGrid.css';
 import useProducts from '../../../../hooks/useProducts';
 import ProductCard from '../../ProductCard/ProductCard';

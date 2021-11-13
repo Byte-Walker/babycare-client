@@ -7,18 +7,20 @@ const MakeAdmin = () => {
     const [severity, setSeverity] = useState('success');
     const [email, setEmail] = useState();
 
-    // Handle review submit
+    // Handle Make admin
     const handleMakeAdmin = (e) => {
         setAlertVisibility(false);
         e.preventDefault();
 
         const reviewForm = document.getElementById('review-form');
 
+        // Sending update(PUT) request to the server
         fetch(`https://morning-tundra-59616.herokuapp.com/makeadmin/${email}`, {
             method: 'PUT',
         })
             .then((response) => response.json())
             .then((data) => {
+                // Checking if the update was sccessful
                 console.log(data);
                 setAlertVisibility(true);
                 if (data.modifiedCount) {
@@ -33,6 +35,7 @@ const MakeAdmin = () => {
     return (
         <div>
             <div className="login">
+                {/* Showing response message */}
                 {alertVisibility ? (
                     <Alert severity={severity}>
                         {severity === 'success'
@@ -40,6 +43,8 @@ const MakeAdmin = () => {
                             : 'There was something wrong!'}
                     </Alert>
                 ) : null}
+
+                {/* email taking form */}
                 <form
                     className="login-form"
                     id="review-form"

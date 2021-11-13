@@ -4,6 +4,7 @@ import './ReviewCard.css';
 import Avatar from '@mui/material/Avatar';
 import { Rating } from '@mui/material';
 
+// Create color based on a string
 function stringToColor(string) {
     let hash = 0;
     let i;
@@ -24,6 +25,7 @@ function stringToColor(string) {
     return color;
 }
 
+// Make an avatar based on the user name
 function stringAvatar(name) {
     return {
         sx: {
@@ -39,22 +41,28 @@ const ReviewCard = ({ review }) => {
     return (
         <div className="review-card">
             <div className="avatar-name">
+                {/* Avatar */}
                 {img ? (
                     <Avatar alt={name} src={img} />
                 ) : (
                     <Avatar {...stringAvatar(name)} />
                 )}
+
                 <div className="name-rating">
+                    {/* Name */}
                     <h4 className="review-card-name">{name}</h4>
+
+                    {/* Rating */}
                     <Rating
                         name="read-only"
                         value={rating}
                         readOnly
                         precision={0.5}
-                        sx={{fontSize: '18px'}}
+                        sx={{ fontSize: '18px' }}
                     />
                 </div>
             </div>
+
             <p className="review-card-description">{description}</p>
         </div>
     );

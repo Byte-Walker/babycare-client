@@ -50,6 +50,7 @@ export default function MediaCard({ order, setRender, role }) {
     };
 
     return (
+        // Card component from material UI
         <Card sx={{ maxWidth: 365, p: '20px' }}>
             <CardMedia
                 component="img"
