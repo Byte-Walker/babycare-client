@@ -12,6 +12,8 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import MyOrders from './pages/MyOrders/MyOrders';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Footer from './components/Shared/Footer/Footer';
+import NotFound from './pages/NotFound/NotFound';
 
 const theme = createTheme({
     palette: {
@@ -72,9 +74,15 @@ function App() {
                         >
                             <Register />
                         </Route>
+
+                        {/* Not Found page */}
+                        <Route path='*'>
+                            <NotFound />
+                        </Route>
                     </Switch>
                 </AuthContext.Provider>
             </ThemeProvider>
+            <Footer />
         </Router>
     );
 }

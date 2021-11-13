@@ -51,6 +51,7 @@ function Dashboard(props) {
     const { uid } = user;
     const [role, setRole] = React.useState('');
     console.log(role);
+
     React.useEffect(() => {
         fetch(`https://morning-tundra-59616.herokuapp.com/user/${uid}`)
             .then((response) => response.json())
@@ -178,7 +179,7 @@ function Dashboard(props) {
         window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <div className="max-width">
+        <div>
             {/* <Header /> */}
             <Box sx={{ display: 'flex', position: 'relative' }}>
                 <CssBaseline />
@@ -235,7 +236,7 @@ function Dashboard(props) {
                             '& .MuiDrawer-paper': {
                                 boxSizing: 'border-box',
                                 width: drawerWidth,
-                                position: 'absolute',
+                                position: 'relative',
                                 height: '80vh',
                             },
                         }}

@@ -15,7 +15,6 @@ const Home = () => {
             <Products limit={6} />
             <Reviews />
             <Features />
-            <Footer />
         </div>
     );
 };

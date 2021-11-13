@@ -1,0 +1,38 @@
+.not-found-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found {
+    text-align: center;
+    text-decoration: none;
+}
+
+.not-found a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.not-found-number {
+    font-size: 100px;
+    line-height: 100px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.not-found-text {
+    max-width: 600px;
+    margin: 0px auto;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    color: #3f3f3f;
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 499px) {
+    .not-found-text {
+        font-size: 20px;
+    }
+}

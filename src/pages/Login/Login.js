@@ -1,4 +1,4 @@
-import { Alert, Snackbar, TextField } from '@mui/material';
+import { Alert, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import './Login.css';
 import ButtonPrimary from '../../components/Buttons/ButtonPrimary/ButtonPrimary';

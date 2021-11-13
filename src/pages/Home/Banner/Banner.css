@@ -24,6 +24,7 @@
     line-height: 60px;
     margin: 20px 0;
     text-transform: capitalize;
+    font-weight: bolder;
 }
 
 .banner-content p {
@@ -48,5 +49,37 @@
 
     .banner-img {
         order: -1;
+    }
+
+    .banner-content p {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 699px) {
+    .banner {
+        grid-gap: 30px;
+        text-align: center;
+    }
+
+    .banner-content h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .banner-content p {
+        margin: 0 auto 30px;
+        letter-spacing: inherit;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .banner-content p {
+        width: 100%;
+    }
+
+    .banner-content h1 {
+        font-size: 35px;
+        line-height: 45px;
     }
 }

@@ -28,4 +28,16 @@
 }
 
 
+@media only screen and (max-width: 499px) {
+    .footer {
+        text-align: center;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+
+    }
+    
+}
+
 

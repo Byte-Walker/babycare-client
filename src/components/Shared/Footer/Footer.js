@@ -17,7 +17,7 @@ const Footer = () => {
                 <div className="footer-left">
                     <h1>BabyCare</h1>
                     <p className="footer-left-tagline">The best place for caring your baby</p>
-                    <p className="footer-left-location">Block #F, Lalmatia <br/> Dhaka, Bangladesh</p>
+                    <p className="footer-left-location"> <h3 style={{marginBottom: '10px'}}>Address:</h3> Block #F, Lalmatia <br/> Dhaka, Bangladesh</p>
                 </div>
                 <div className="footer-right">
                     <p>Follow us on social media</p>
@@ -52,7 +52,7 @@ const Footer = () => {
                     color: 'white',
                 }}
             >
-                2021 &copy; | All rights reserved
+                 &copy; 2021 | All rights reserved
             </p>
         </footer>
     );
